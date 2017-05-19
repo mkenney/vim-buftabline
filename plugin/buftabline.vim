@@ -73,9 +73,9 @@ function! buftabline#render()
 			let tab.path = fnamemodify(bufpath, ':p:~:.')
 			let tab.sep = strridx(tab.path, s:dirsep, strlen(tab.path) - 2) " keep trailing dirsep
 			let tab.label = tab.path[tab.sep + 1:]
-			let pre = ( show_mod && getbufvar(bufnum, '&mod') ? '+' : '' ) . screen_num
-			let tab.pre = strlen(pre) ? pre . ' ' : ''
 			if strlen(tab.label)
+				let pre = ( show_mod && getbufvar(bufnum, '&mod') ? '+' : '' ) . screen_num
+				let tab.pre = strlen(pre) ? pre . ' ' : ''
 				let tabs_per_tail[tab.label] = get(tabs_per_tail, tab.label, 0) + 1
 				let path_tabs += [tab]
 			endif
